@@ -2,5 +2,11 @@
   "extends": "airbnb-base",
   "env": {
     "node": true
+  },
+  "rules": {
+    "max-len": ["error", 80],
+    "prefer-arrow-callback": ["off"],
+    "func-names": ["error", "never"],
+    "no-underscore-dangle": ["off"]
   }
 }
