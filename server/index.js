@@ -8,8 +8,9 @@ const User = require('./models/User');
 const secret = require('./secret');
 
 // Configure the local strategy for use by Passport.
-passport.use(new Strategy(function (username, password, cb) {
-  User.findOne({ email: username }, function (err, user) {
+// eslint-disable-next-line max-len
+passport.use(new Strategy({ usernameField: 'email' }, function (email, password, cb) {
+  User.findOne({ email }, function (err, user) {
     if (err) return cb(err);
     if (!user) return cb(null, false);
     if (user.password !== password) return cb(null, false);
@@ -68,7 +69,9 @@ app.get('/', function (req, res) {
 
 app.post(
   '/login',
-  passport.authenticate('local', { failureRedirect: '/login' }),
+  passport.authenticate('local', {
+    failureRedirect: '/login',
+  }),
   function (req, res) {
     res.redirect('/');
   },
