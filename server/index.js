@@ -1,4 +1,5 @@
 const print = require('debug')('app');
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -36,6 +37,9 @@ const dbUsername = secret.db.username;
 const dbPassword = secret.db.password;
 const dbUrl = secret.db.url;
 mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
+
+// Set up static files
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Configure view engine to render EJS templates.
 app.set('views', `${__dirname}/views`);

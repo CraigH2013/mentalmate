@@ -1,2 +1,4 @@
 node_modules
 secret.js
+.sass-cache
+bulma.css
