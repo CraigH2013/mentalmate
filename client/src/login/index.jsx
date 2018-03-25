@@ -1,33 +1,24 @@
 import React from 'react';
 import { render } from 'react-dom';
+import LoginBox from './LoginBox';
 
 const Login = () => (
-  <div className="container">
-    <div className="columns is-centered">
-      <div className="column is-two-fifths is-narrow">
-        <div className="box">
-          <form action="/login" method="post">
-            <div className="field">
-              <label className="label">Email</label>
-              <div className="control">
-                <input className="input" type="email" name="username" />
-              </div>
-            </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input className="input" type="password" name="password" />
-              </div>
-            </div>
-            <div className="control">
-              <button className="button is-primary" type="submit">
-                Submit
-              </button>
-            </div>
-          </form>
+  <div>
+    <section className="section">
+      <div className="container">
+        <div className="level">
+          <a className="level-item has-text-centered" href="/">
+            <figure className="image is-96x96">
+              <img
+                src="/static/images/logo-square-primary-bold.png"
+                alt="Mental Mate: An easier way to manage stress"
+              />
+            </figure>
+          </a>
         </div>
+        <LoginBox />
       </div>
-    </div>
+    </section>
   </div>
 );
 
