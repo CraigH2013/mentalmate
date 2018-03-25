@@ -7,33 +7,8 @@
     <link rel="stylesheet" href="/static/css/bulma.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   </head>
-  <body>
-		<section class="section">
-			<div class="container">
-				<div class="columns is-centered">
-					<div class="column is-two-fifths is-narrow">
-						<div class="box">
-							<form action="/login" method="post">
-								<div class="field">
-									<label class="label">Email</label>
-									<div class="control">
-										<input class="input" type="email" name="username">
-									</div>
-								</div>
-								<div class="field">
-									<label class="label">Password</label>
-									<div class="control">
-										<input class="input" type="password" name="password">
-									</div>
-								</div>
-								<div class="control">
-									<button class="button is-primary" type="submit">Submit</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+	<body>
+		<section id="root" class="section"></section>
+		<script src="/static/js/login-bundle.js"></script>
   </body>
 </html>

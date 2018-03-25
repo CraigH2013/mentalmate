@@ -4,6 +4,7 @@
     "browser": true
   },
   "rules": {
-    "max-len": ["error", 80]
+    "max-len": ["error", 80],
+    "jsx-a11y/label-has-for": 0
   }
 }
