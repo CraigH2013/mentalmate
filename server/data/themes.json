@@ -1,0 +1,10 @@
+{
+  "shadowNight": {
+    "name": "Shadow Night",
+    "gradient": ["#000000", "#53346D"]
+  },
+  "greenAndBlue": {
+    "name": "Green and Blue",
+    "gradient": ["#c2e59c", "#64b3f4"]
+  }
+}

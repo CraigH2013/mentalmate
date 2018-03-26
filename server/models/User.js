@@ -18,6 +18,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  preferences: {
+    entryTheme: {
+      type: String,
+      default: 'shadowNight',
+    },
+  },
 });
 
 const User = mongoose.model('User', userSchema);

@@ -19,9 +19,8 @@ const Navbar = ({ user }) => {
       <div className="navbar-brand">
         <a className="navbar-item" href="/profile">
           <img
-            src="/static/images/logo-full-primary.png"
+            src="/static/images/logo-long@2x.png"
             alt="Mental Mate: An easier way to manage stress"
-            width="112"
             height="28"
           />
         </a>
@@ -36,6 +35,14 @@ const Navbar = ({ user }) => {
       <div className="navbar-menu" id="navMenu">
         <div className="navbar-start" />
         <div className="navbar-end">
+          <div className="navbar-item">
+            <a href="/new-entry" className="button is-inverted">
+              <span className="icon">
+                <i className="far fa-edit" />
+              </span>
+              <span>New Entry</span>
+            </a>
+          </div>
           <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link">
               <figure className="image is-32x32">

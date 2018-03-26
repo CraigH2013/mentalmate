@@ -8,6 +8,7 @@ const { ensureLoggedIn } = require('connect-ensure-login');
 const User = require('./models/User');
 const secret = require('./secret');
 const api = require('./api');
+const themes = require('./data/themes');
 
 // Configure the local strategy for use by Passport.
 const strategyOptions = {
@@ -138,6 +139,15 @@ app.post(
 
 app.get('/profile*', ensureLoggedIn(), function (req, res) {
   res.render('profile', { user: req.user });
+});
+
+app.get('/new-entry', ensureLoggedIn(), function (req, res) {
+  const { entryTheme } = req.user.preferences;
+  const theme = themes[entryTheme];
+  const [one, two] = theme.gradient;
+  res.render('new-entry', {
+    gradient: { one, two },
+  });
 });
 
 app.use(function (err, req, res, next) {

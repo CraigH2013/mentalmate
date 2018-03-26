@@ -5,7 +5,7 @@ const BasicNavbar = () => (
     <div className="navbar-brand">
       <a className="navbar-item" href="/">
         <img
-          src="/static/images/logo-full-light.png"
+          src="/static/images/logo-long@2x.png"
           alt="Mental Mate: An easier way to manage stress"
           width="112"
           height="28"

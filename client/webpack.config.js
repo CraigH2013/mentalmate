@@ -5,6 +5,7 @@ const config = {
     login: './src/login/index.jsx',
     profile: './src/profile/index.jsx',
     signup: './src/signup/index.jsx',
+    newentry: './src/new-entry/index.jsx',
   },
   output: {
     filename: '[name]-bundle.js',

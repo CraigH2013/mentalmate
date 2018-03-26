@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mental Mate</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i|IBM+Plex+Sans+Condensed:400,400i|IBM+Plex+Sans:100,100i,400,400i,700,700i|IBM+Plex+Serif:400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/bulma.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <style>
+      html {
+        --gradient-1: <%= gradient.one %>;
+        --gradient-2: <%= gradient.two %>;
+      }
+      body {
+        background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+        background-size: 400% 400%;
+
+        -webkit-animation: AnimationName 20s ease infinite;
+        -moz-animation: AnimationName 20s ease infinite;
+        animation: AnimationName 20s ease infinite;
+      }
+
+      @-webkit-keyframes AnimationName {
+          0%{background-position:0% 50%}
+          50%{background-position:100% 50%}
+          100%{background-position:0% 50%}
+      }
+      @-moz-keyframes AnimationName {
+          0%{background-position:0% 50%}
+          50%{background-position:100% 50%}
+          100%{background-position:0% 50%}
+      }
+      @keyframes AnimationName { 
+          0%{background-position:0% 50%}
+          50%{background-position:100% 50%}
+          100%{background-position:0% 50%}
+      }
+    </style>
+  </head>
+  <body>
+		<div id="root"></div>
+		<script src="/static/js/newentry-bundle.js"></script>
+  </body>
+</html>
