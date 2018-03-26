@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "set DEBUG=app & nodemon src"
+    "dev": "set DEBUG=app & nodemon"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +22,7 @@
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "http-errors": "^1.6.2",
+    "md5": "^2.2.1",
     "mongoose": "^5.0.11",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.2",

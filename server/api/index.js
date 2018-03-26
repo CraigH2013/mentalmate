@@ -1,17 +1,11 @@
 const express = require('express');
-const createError = require('http-errors');
+const { ensureUser } = require('../middleware');
 
 const router = express.Router();
 const feelings = require('./feelings');
+const me = require('./me');
 
-function ensureUser(req, res, next) {
-  if (!req.user) {
-    next(createError(401, 'Login to access this endpoint'));
-  } else {
-    next();
-  }
-}
-
+router.use('/me', ensureUser, me);
 router.use('/feelings', feelings);
 router.use('/protected', ensureUser, function (req, res) {
   res.send('private');

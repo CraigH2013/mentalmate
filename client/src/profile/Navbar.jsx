@@ -1,36 +1,86 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Identicon from 'identicon.js';
 import '../utils/navbar-toggle';
 
-const Navbar = () => (
-  <nav className="navbar is-light">
-    <div className="navbar-brand">
-      <a className="navbar-item" href="/profile">
-        <img
-          src="/static/images/logo-full-primary.png"
-          alt="Mental Mate: An easier way to manage stress"
-          width="112"
-          height="28"
-        />
-      </a>
+const Navbar = ({ user }) => {
+  let image = '';
 
-      <div className="navbar-burger" data-target="navMenu">
-        <span />
-        <span />
-        <span />
-      </div>
-    </div>
+  if (user.hash) {
+    const data = new Identicon(user.hash, {
+      size: 32,
+      background: [0, 0, 0, 15],
+    });
+    image = `data:image/png;base64,${data}`;
+  }
 
-    <div className="navbar-menu is-pulled-right" id="navMenu">
-      <div className="navbar-start" />
-      <div className="navbar-end">
-        <div className="navbar-item">
-          <a className="button is-primary is-rounded" href="/logout">
-            Logout
-          </a>
+  return (
+    <nav className="navbar is-light">
+      <div className="navbar-brand">
+        <a className="navbar-item" href="/profile">
+          <img
+            src="/static/images/logo-full-primary.png"
+            alt="Mental Mate: An easier way to manage stress"
+            width="112"
+            height="28"
+          />
+        </a>
+
+        <div className="navbar-burger" data-target="navMenu">
+          <span />
+          <span />
+          <span />
         </div>
       </div>
-    </div>
-  </nav>
-);
+
+      <div className="navbar-menu" id="navMenu">
+        <div className="navbar-start" />
+        <div className="navbar-end">
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link">
+              <figure className="image is-32x32">
+                <img
+                  alt=""
+                  src={image}
+                  style={{
+                    maxHeight: 32,
+                    borderRadius: 3,
+                  }}
+                />
+              </figure>
+            </a>
+
+            <div className="navbar-dropdown is-right">
+              <p className="navbar-item has-text-weight-semibold">
+                {user.name}
+              </p>
+              <hr className="navbar-divider" />
+              <a href="#" className="navbar-item">
+                Account
+              </a>
+              <a href="/logout" className="navbar-item">
+                Logout
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+Navbar.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    hash: PropTypes.string,
+  }),
+};
+
+Navbar.defaultProps = {
+  user: {
+    name: 'User',
+    hash: null,
+  },
+};
 
 export default Navbar;
