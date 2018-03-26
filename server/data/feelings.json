@@ -1,0 +1,442 @@
+[
+  {
+    "emotion": "joyful",
+    "type": "positive"
+  },
+  {
+    "emotion": "cheerful",
+    "type": "positive"
+  },
+  {
+    "emotion": "content",
+    "type": "positive"
+  },
+  {
+    "emotion": "proud",
+    "type": "positive"
+  },
+  {
+    "emotion": "satisfied",
+    "type": "positive"
+  },
+  {
+    "emotion": "excited",
+    "type": "positive"
+  },
+  {
+    "emotion": "amused",
+    "type": "positive"
+  },
+  {
+    "emotion": "enthusiastic",
+    "type": "positive"
+  },
+  {
+    "emotion": "optimistic",
+    "type": "positive"
+  },
+  {
+    "emotion": "elated",
+    "type": "positive"
+  },
+  {
+    "emotion": "delighted",
+    "type": "positive"
+  },
+  {
+    "emotion": "calm",
+    "type": "positive"
+  },
+  {
+    "emotion": "relaxed",
+    "type": "positive"
+  },
+  {
+    "emotion": "relieved",
+    "type": "positive"
+  },
+  {
+    "emotion": "hopeful",
+    "type": "positive"
+  },
+  {
+    "emotion": "pleased",
+    "type": "positive"
+  },
+  {
+    "emotion": "confident",
+    "type": "positive"
+  },
+  {
+    "emotion": "brave",
+    "type": "positive"
+  },
+  {
+    "emotion": "comfortable",
+    "type": "positive"
+  },
+  {
+    "emotion": "safe",
+    "type": "positive"
+  },
+  {
+    "emotion": "happy",
+    "type": "positive"
+  },
+  {
+    "emotion": "loved",
+    "type": "positive"
+  },
+  {
+    "emotion": "tender",
+    "type": "positive"
+  },
+  {
+    "emotion": "compassionate",
+    "type": "positive"
+  },
+  {
+    "emotion": "caring",
+    "type": "positive"
+  },
+  {
+    "emotion": "trusted",
+    "type": "positive"
+  },
+  {
+    "emotion": "liked",
+    "type": "positive"
+  },
+  {
+    "emotion": "attractive",
+    "type": "positive"
+  },
+  {
+    "emotion": "sympathetic",
+    "type": "positive"
+  },
+  {
+    "emotion": "adored",
+    "type": "positive"
+  },
+  {
+    "emotion": "open",
+    "type": "positive"
+  },
+  {
+    "emotion": "intrigued",
+    "type": "positive"
+  },
+  {
+    "emotion": "fortunate",
+    "type": "positive"
+  },
+  {
+    "emotion": "liberated",
+    "type": "positive"
+  },
+  {
+    "emotion": "wonderful",
+    "type": "positive"
+  },
+  {
+    "emotion": "certain",
+    "type": "positive"
+  },
+  {
+    "emotion": "shocked",
+    "type": "negative"
+  },
+  {
+    "emotion": "dismayed",
+    "type": "negative"
+  },
+  {
+    "emotion": "amazed",
+    "type": "positive"
+  },
+  {
+    "emotion": "confused",
+    "type": "negative"
+  },
+  {
+    "emotion": "stunned",
+    "type": "negative"
+  },
+  {
+    "emotion": "controlled",
+    "type": "negative"
+  },
+  {
+    "emotion": "curious",
+    "type": "neutral"
+  },
+  {
+    "emotion": "eager",
+    "type": "neutral"
+  },
+  {
+    "emotion": "fearful",
+    "type": "negative"
+  },
+  {
+    "emotion": "anxious",
+    "type": "negative"
+  },
+  {
+    "emotion": "worried",
+    "type": "negative"
+  },
+  {
+    "emotion": "scared",
+    "type": "negative"
+  },
+  {
+    "emotion": "insecure",
+    "type": "negative"
+  },
+  {
+    "emotion": "rejected",
+    "type": "negative"
+  },
+  {
+    "emotion": "horrified",
+    "type": "negative"
+  },
+  {
+    "emotion": "alarmed",
+    "type": "negative"
+  },
+  {
+    "emotion": "panicked",
+    "type": "negative"
+  },
+  {
+    "emotion": "afraid",
+    "type": "negative"
+  },
+  {
+    "emotion": "nervous",
+    "type": "negative"
+  },
+  {
+    "emotion": "disoriented",
+    "type": "negative"
+  },
+  {
+    "emotion": "helpless",
+    "type": "negative"
+  },
+  {
+    "emotion": "powerless",
+    "type": "negative"
+  },
+  {
+    "emotion": "dreadful",
+    "type": "negative"
+  },
+  {
+    "emotion": "betrayed",
+    "type": "negative"
+  },
+  {
+    "emotion": "suspicious",
+    "type": "negative"
+  },
+  {
+    "emotion": "cautious",
+    "type": "neutral"
+  },
+  {
+    "emotion": "disturbed",
+    "type": "negative"
+  },
+  {
+    "emotion": "overwhelmed",
+    "type": "negative"
+  },
+  {
+    "emotion": "uncomfortable",
+    "type": "negative"
+  },
+  {
+    "emotion": "guilty",
+    "type": "negative"
+  },
+  {
+    "emotion": "hurt",
+    "type": "negative"
+  },
+  {
+    "emotion": "lonely",
+    "type": "negative"
+  },
+  {
+    "emotion": "melancholy",
+    "type": "negative"
+  },
+  {
+    "emotion": "depressed",
+    "type": "negative"
+  },
+  {
+    "emotion": "hopeless",
+    "type": "negative"
+  },
+  {
+    "emotion": "sad",
+    "type": "negative"
+  },
+  {
+    "emotion": "regretful",
+    "type": "negative"
+  },
+  {
+    "emotion": "sorrowful",
+    "type": "negative"
+  },
+  {
+    "emotion": "uncertain",
+    "type": "negative"
+  },
+  {
+    "emotion": "disappointed",
+    "type": "negative"
+  },
+  {
+    "emotion": "self-conscious",
+    "type": "negative"
+  },
+  {
+    "emotion": "ashamed",
+    "type": "negative"
+  },
+  {
+    "emotion": "embarrassed",
+    "type": "negative"
+  },
+  {
+    "emotion": "humiliated",
+    "type": "negative"
+  },
+  {
+    "emotion": "disgraced",
+    "type": "negative"
+  },
+  {
+    "emotion": "neglected",
+    "type": "negative"
+  },
+  {
+    "emotion": "defeated",
+    "type": "negative"
+  },
+  {
+    "emotion": "bored",
+    "type": "negative"
+  },
+  {
+    "emotion": "inferior",
+    "type": "negative"
+  },
+  {
+    "emotion": "isolated",
+    "type": "negative"
+  },
+  {
+    "emotion": "numb",
+    "type": "negative"
+  },
+  {
+    "emotion": "exhausted",
+    "type": "negative"
+  },
+  {
+    "emotion": "disgusted",
+    "type": "negative"
+  },
+  {
+    "emotion": "weary",
+    "type": "negative"
+  },
+  {
+    "emotion": "preoccupied",
+    "type": "negative"
+  },
+  {
+    "emotion": "angry",
+    "type": "negative"
+  },
+  {
+    "emotion": "jealous",
+    "type": "negative"
+  },
+  {
+    "emotion": "envious",
+    "type": "negative"
+  },
+  {
+    "emotion": "annoyed",
+    "type": "negative"
+  },
+  {
+    "emotion": "irritated",
+    "type": "negative"
+  },
+  {
+    "emotion": "aggravated",
+    "type": "negative"
+  },
+  {
+    "emotion": "restless",
+    "type": "negative"
+  },
+  {
+    "emotion": "grumpy",
+    "type": "negative"
+  },
+  {
+    "emotion": "awkward",
+    "type": "negative"
+  },
+  {
+    "emotion": "frustrated",
+    "type": "negative"
+  },
+  {
+    "emotion": "outraged",
+    "type": "negative"
+  },
+  {
+    "emotion": "hostile",
+    "type": "negative"
+  },
+  {
+    "emotion": "bitter",
+    "type": "negative"
+  },
+  {
+    "emotion": "hateful",
+    "type": "negative"
+  },
+  {
+    "emotion": "disliked",
+    "type": "negative"
+  },
+  {
+    "emotion": "resentful",
+    "type": "negative"
+  },
+  {
+    "emotion": "alienated",
+    "type": "negative"
+  },
+  {
+    "emotion": "insulted",
+    "type": "negative"
+  },
+  {
+    "emotion": "indifferent",
+    "type": "neutral"
+  }
+]

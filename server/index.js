@@ -6,6 +6,7 @@ const passport = require('passport');
 const { Strategy } = require('passport-local');
 const User = require('./models/User');
 const secret = require('./secret');
+const api = require('./api');
 
 // Configure the local strategy for use by Passport.
 // eslint-disable-next-line max-len
@@ -61,6 +62,9 @@ app.use(require('express-session')({
 // session.
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Define REST endpoints
+app.use('/api', api);
 
 // Define routes.
 app.get('/', function (req, res) {
