@@ -3,13 +3,32 @@
 @import "../node_modules/bulma/sass/utilities/functions";
 
 // 2. Set your own initial variables
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+
+  background-color: $white-ter;
+}
+
+// Responsive
 $gap: 42px;
 $tablet: 769px;
 $desktop: 769px + (2 * $gap);
-$widescreen: $desktop;
-$fullhd: $widescreen;
+
+// Font
+$family-sans-serif: "IBM Plex Sans", BlinkMacSystemFont, -apple-system,
+  "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+$family-monospace: "IBM Plex Mono", monospace;
 
 // 3. Set the derived variables
+
+// Responsive
+$widescreen: $desktop;
+$fullhd: $widescreen;
 
 // Input
 $input-background-color: $white-ter;

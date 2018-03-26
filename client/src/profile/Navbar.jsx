@@ -15,7 +15,7 @@ const Navbar = ({ user }) => {
   }
 
   return (
-    <nav className="navbar is-light">
+    <nav className="navbar">
       <div className="navbar-brand">
         <a className="navbar-item" href="/profile">
           <img
