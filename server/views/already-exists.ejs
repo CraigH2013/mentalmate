@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mental Mate</title>
+    <link rel="stylesheet" href="/static/css/bulma.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="level">
+          <a class="level-item has-text-centered" href="/">
+            <figure class="image is-96x96">
+              <img
+                src="/static/images/logo-square-primary-bold.png"
+                alt="Mental Mate: An easier way to manage stress"
+              />
+            </figure>
+          </a>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-three-quarters is-narrow">
+            <div class="box">
+              <div class="content">
+                <p class="has-text-centered">
+                  <strong>Account already exists</strong>
+                </p>
+                <p>An account with the email <code><%= email %></code> already exists.</p>
+              </div>
+              <p class="has-text-centered">
+                <a href="/signup">Try again</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

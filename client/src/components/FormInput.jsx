@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const FormInput = ({
-  label, type, name, placeholder,
+  label, type, name, placeholder, required,
 }) => (
   <div className="field">
     {label !== '' && <label className="label">{label}</label>}
@@ -12,6 +12,7 @@ const FormInput = ({
         type={type}
         name={name}
         placeholder={placeholder}
+        required={required}
       />
     </div>
   </div>
@@ -23,11 +24,13 @@ FormInput.propTypes = {
     .isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
+  required: PropTypes.bool,
 };
 
 FormInput.defaultProps = {
   label: '',
   placeholder: '',
+  required: false,
 };
 
 export default FormInput;

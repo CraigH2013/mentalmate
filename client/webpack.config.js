@@ -3,6 +3,8 @@ const path = require('path');
 const config = {
   entry: {
     login: './src/login/index.jsx',
+    profile: './src/profile/index.jsx',
+    signup: './src/signup/index.jsx',
   },
   output: {
     filename: '[name]-bundle.js',

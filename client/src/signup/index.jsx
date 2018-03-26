@@ -1,17 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
-import LoginBox from './LoginBox';
 import CenteredLogo from '../components/CenteredLogo';
+import SignupBox from './SignupBox';
 
-const Login = () => (
+const Signup = () => (
   <div>
     <section className="section">
       <div className="container">
         <CenteredLogo />
-        <LoginBox />
+        <SignupBox />
       </div>
     </section>
   </div>
 );
 
-render(<Login />, document.getElementById('root'));
+render(<Signup />, document.getElementById('root'));

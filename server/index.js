@@ -4,20 +4,25 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const { Strategy } = require('passport-local');
+const { ensureLoggedIn } = require('connect-ensure-login');
 const User = require('./models/User');
 const secret = require('./secret');
 const api = require('./api');
 
 // Configure the local strategy for use by Passport.
-// eslint-disable-next-line max-len
-passport.use(new Strategy({ usernameField: 'email' }, function (email, password, cb) {
+const strategyOptions = {
+  usernameField: 'email',
+};
+const strategyValidation = function (email, password, cb) {
   User.findOne({ email }, function (err, user) {
     if (err) return cb(err);
     if (!user) return cb(null, false);
     if (user.password !== password) return cb(null, false);
     return cb(null, user);
   });
-}));
+};
+const strategy = new Strategy(strategyOptions, strategyValidation);
+passport.use(strategy);
 
 // Configure Passport authenticated session persistence.
 passport.serializeUser(function (user, cb) {
@@ -77,12 +82,16 @@ app.post(
     failureRedirect: '/login',
   }),
   function (req, res) {
-    res.redirect('/');
+    res.redirect('/profile');
   },
 );
 
 app.get('/login', function (req, res) {
-  res.render('login');
+  if (req.user) {
+    res.redirect('profile');
+  } else {
+    res.render('login');
+  }
 });
 
 app.get('/logout', function (req, res) {
@@ -90,11 +99,53 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
-app.get('/profile', require('connect-ensure-login').ensureLoggedIn(), function (
-  req,
-  res,
-) {
+app.get('/signup', function (req, res) {
+  if (req.user) {
+    res.redirect('profile');
+  } else {
+    res.render('signup');
+  }
+});
+
+app.post(
+  '/signup',
+  function (req, res, next) {
+    const { body: { name, email, password } } = req;
+
+    User.findOne({ email }).then((user) => {
+      if (user) {
+        res.render('already-exists.ejs', { email });
+      } else {
+        User.create({
+          name,
+          email,
+          password,
+        })
+          .then(() => {
+            next();
+          })
+          .catch(() => {
+            res.render('signup');
+          });
+      }
+    });
+  },
+  passport.authenticate('local', {
+    failureRedirect: '/login',
+    successRedirect: '/profile',
+  }),
+);
+
+app.get('/profile*', ensureLoggedIn(), function (req, res) {
   res.render('profile', { user: req.user });
+});
+
+app.use(function (err, req, res, next) {
+  if (res.headersSent) {
+    next(err);
+  } else {
+    res.status(500).render('error', { error: err });
+  }
 });
 
 app.listen(3000, () => print('Server listening on port 3000!'));

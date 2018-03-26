@@ -3,6 +3,11 @@
 @import "../node_modules/bulma/sass/utilities/functions";
 
 // 2. Set your own initial variables
+$gap: 42px;
+$tablet: 769px;
+$desktop: 769px + (2 * $gap);
+$widescreen: $desktop;
+$fullhd: $widescreen;
 
 // 3. Set the derived variables
 
