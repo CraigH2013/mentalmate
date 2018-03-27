@@ -4,14 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mental Mate</title>
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i|IBM+Plex+Sans+Condensed:400,400i|IBM+Plex+Sans:100,100i,400,400i,700,700i|IBM+Plex+Serif:400,400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/bulma.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <style>
+
       html {
         --gradient-1: <%= gradient.one %>;
         --gradient-2: <%= gradient.two %>;
+      
       }
+
       body {
         background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
         background-size: 400% 400%;
@@ -35,6 +39,37 @@
           0%{background-position:0% 50%}
           50%{background-position:100% 50%}
           100%{background-position:0% 50%}
+      }
+
+      .input {
+        border: none;
+        box-shadow: none;
+        background-color: rgba(10, 10, 10, 0.3);
+        padding: 0 7px 0 7px;
+        caret-color: hsl(0, 0%, 90%);
+        color: hsl(0, 0%, 95%);
+
+        --placeholder-color: hsl(0, 0%, 70%);
+      }
+
+      .input:focus, .input:active, .input:hover {
+        box-shadow: none;
+        border: none;
+      }
+
+      .input:focus::placeholder {
+        opacity: 0;
+      }
+
+      .input:focus::-ms-input-placeholder {
+        opacity: 0;
+      }
+
+      .input::placeholder{
+        color: var(--placeholder-color);
+      }
+      .input::-ms-input-placeholder {
+        color: var(--placeholder-color);
       }
     </style>
   </head>
