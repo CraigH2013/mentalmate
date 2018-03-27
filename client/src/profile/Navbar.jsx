@@ -36,11 +36,11 @@ const Navbar = ({ user }) => {
         <div className="navbar-start" />
         <div className="navbar-end">
           <div className="navbar-item">
-            <a href="/new-entry" className="button is-inverted">
+            <a href="/meditate" className="button is-inverted is-primary">
               <span className="icon">
-                <i className="far fa-edit" />
+                <i className="far fa-hand-peace" />
               </span>
-              <span>New Entry</span>
+              <span>Meditate</span>
             </a>
           </div>
           <div className="navbar-item has-dropdown is-hoverable">

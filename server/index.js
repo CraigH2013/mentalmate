@@ -141,11 +141,11 @@ app.get('/profile*', ensureLoggedIn(), function (req, res) {
   res.render('profile', { user: req.user });
 });
 
-app.get('/new-entry', ensureLoggedIn(), function (req, res) {
-  const { entryTheme } = req.user.preferences;
-  const theme = themes[entryTheme];
+app.get('/meditate', ensureLoggedIn(), function (req, res) {
+  const { meditateTheme } = req.user.preferences;
+  const theme = themes[meditateTheme];
   const [one, two] = theme.gradient;
-  res.render('new-entry', {
+  res.render('meditate', {
     gradient: { one, two },
   });
 });

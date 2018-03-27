@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-const NewEntry = () => (
+const Meditate = () => (
   <section className="section">
     <div className="container">
       <div className="level">
@@ -16,4 +16,4 @@ const NewEntry = () => (
   </section>
 );
 
-render(<NewEntry />, document.getElementById('root'));
+render(<Meditate />, document.getElementById('root'));

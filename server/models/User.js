@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   preferences: {
-    entryTheme: {
+    meditateTheme: {
       type: String,
       default: 'shadowNight',
     },
