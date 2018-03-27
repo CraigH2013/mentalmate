@@ -141,10 +141,17 @@ app.get('/profile*', ensureLoggedIn(), function (req, res) {
   res.render('profile', { user: req.user });
 });
 
-app.get('/meditate', ensureLoggedIn(), function (req, res) {
+app.get('/meditate*', ensureLoggedIn(), function (req, res) {
+  // prevent users from jumping into the middle of the meditation process
+  if (req.path !== '/meditate') {
+    return res.redirect('/meditate');
+  }
+
+  // setup theme
   const { meditateTheme } = req.user.preferences;
   const theme = themes[meditateTheme];
   const [one, two] = theme.gradient;
+
   res.render('meditate', {
     gradient: { one, two },
   });
