@@ -7,9 +7,15 @@
 html,
 body {
   margin: 0;
-  height: 100%;
-
   background-color: $white-ter;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
 }
 
 // Responsive
@@ -25,6 +31,9 @@ $family-sans-serif: "IBM Plex Sans", BlinkMacSystemFont, -apple-system,
 $family-monospace: "IBM Plex Mono", monospace;
 
 // 3. Set the derived variables
+
+// Theme
+$primary: $purple;
 
 // Responsive
 $widescreen: $desktop;
