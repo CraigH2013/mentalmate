@@ -44,7 +44,7 @@ const Navbar = ({ user }) => {
             </a>
           </div>
           <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link">
+            <a className="navbar-link is-hidden-touch">
               <figure className="image is-32x32">
                 <img
                   alt=""
