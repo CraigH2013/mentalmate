@@ -1,3 +1,10 @@
-h1 Internal Server Error
+extends base.pug
 
-p #{error}
+block content
+
+  section.section: .container
+    h1.title.has-text-centered Internal Server Error
+    p.has-text-centered: span.icon.is-large: i.fas.fa-frown.fa-3x.is-large
+    br
+    .content.is-medium
+      p= error
