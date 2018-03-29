@@ -1,0 +1,15 @@
+extends base.pug
+
+block content
+  section.section: .container
+    .level: a.level-item.has-text-centered(href="/")
+      figure.image.is-96x96
+        img(
+          src="/static/images/logo@2x.png" 
+          alt="Mental Mate: An easier way to manage stress"
+        )
+    .columns.is-centered: .column.is-three-quarters.is-narrow: .box
+      .content
+        p.has-text-centered: strong Account already exists
+        p An account with the email #[code #{email}] already exists.
+      p.has-text-centered: a(href="/signup") Try Again

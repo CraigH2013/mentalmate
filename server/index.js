@@ -49,9 +49,9 @@ mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
 // Set up static files
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-// Configure view engine to render EJS templates.
+// Configure view engine to render view templates.
 app.set('views', `${__dirname}/views`);
-app.set('view engine', 'ejs');
+app.set('view engine', 'pug');
 
 // Use application-level middleware for common functionality, including
 // logging, parsing, and session handling.
