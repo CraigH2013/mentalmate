@@ -2,40 +2,10 @@ const print = require('debug')('app');
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
-const passport = require('passport');
-const { Strategy } = require('passport-local');
-const { ensureLoggedIn } = require('connect-ensure-login');
-const User = require('./models/User');
 const secret = require('./secret');
+const passport = require('./passport');
 const api = require('./api');
-const themes = require('./data/themes');
-
-// Configure the local strategy for use by Passport.
-const strategyOptions = {
-  usernameField: 'email',
-};
-const strategyValidation = function (email, password, cb) {
-  User.findOne({ email }, function (err, user) {
-    if (err) return cb(err);
-    if (!user) return cb(null, false);
-    if (user.password !== password) return cb(null, false);
-    return cb(null, user);
-  });
-};
-const strategy = new Strategy(strategyOptions, strategyValidation);
-passport.use(strategy);
-
-// Configure Passport authenticated session persistence.
-passport.serializeUser(function (user, cb) {
-  cb(null, user._id);
-});
-
-passport.deserializeUser(function (id, cb) {
-  User.findOne({ _id: id }, function (err, user) {
-    if (err) cb(err);
-    cb(null, user);
-  });
-});
+const routes = require('./routes');
 
 // Create Express application.
 const app = express();
@@ -69,94 +39,13 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Define routes.
+app.use('/', routes);
+
 // Define REST endpoints
 app.use('/api', api);
 
-// Define routes.
-app.get('/', function (req, res) {
-  res.render('home', { user: req.user });
-});
-
-app.post(
-  '/login',
-  passport.authenticate('local', {
-    failureRedirect: '/login',
-  }),
-  function (req, res) {
-    res.redirect('/profile');
-  },
-);
-
-app.get('/login', function (req, res) {
-  if (req.user) {
-    res.redirect('profile');
-  } else {
-    res.render('login');
-  }
-});
-
-app.get('/logout', function (req, res) {
-  req.logout();
-  res.redirect('/');
-});
-
-app.get('/signup', function (req, res) {
-  if (req.user) {
-    res.redirect('profile');
-  } else {
-    res.render('signup');
-  }
-});
-
-app.post(
-  '/signup',
-  function (req, res, next) {
-    const { body: { name, email, password } } = req;
-
-    User.findOne({ email }).then((user) => {
-      if (user) {
-        res.render('already-exists.ejs', { email });
-      } else {
-        User.create({
-          name,
-          email,
-          password,
-        })
-          .then(() => {
-            next();
-          })
-          .catch(() => {
-            res.render('signup');
-          });
-      }
-    });
-  },
-  passport.authenticate('local', {
-    failureRedirect: '/login',
-    successRedirect: '/profile',
-  }),
-);
-
-app.get('/profile*', ensureLoggedIn(), function (req, res) {
-  res.render('profile', { user: req.user });
-});
-
-app.get('/meditate*', ensureLoggedIn(), function (req, res) {
-  // prevent users from jumping into the middle of the meditation process
-  if (req.path !== '/meditate') {
-    return res.redirect('/meditate');
-  }
-
-  // setup theme
-  const { meditateTheme } = req.user.preferences;
-  const theme = themes[meditateTheme];
-  const [one, two] = theme.gradient;
-
-  res.render('meditate', {
-    gradient: { one, two },
-  });
-});
-
+// catch all errors
 app.use(function (err, req, res, next) {
   if (res.headersSent) {
     next(err);
