@@ -1,9 +1,11 @@
+doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     
-    title Mental Mate - #{title}}
+    block title
+      title Mental Mate
 
     block fonts
       link(
@@ -18,7 +20,7 @@ html(lang='en')
       )
     block icons
       script(
-        src='https://use.fontawesome.com/releases/v5.0.6/js/all.js'
+        src='https://use.fontawesome.com/releases/v5.0.9/js/all.js'
         defer=true
       )
   body
