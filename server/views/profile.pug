@@ -1,8 +1,10 @@
 extends base.pug
 
+append scripts
+  script(src="/static/js/navbar-toggle.js")
+
 block title
   title Mental Mate - Profile
 
 block content
-  #root
-  script(src="/static/js/profile-bundle.js")
+  include components/navbar.pug

@@ -4,5 +4,35 @@ block title
   title Mental Mate - Signup
 
 block content
-  #root
-  script(src="/static/js/signup-bundle.js")
+  section.section: .container
+    include components/centered-logo.pug
+    .columns.is-centered: .column.is-half.is-narrow: .box
+      form(action="/signup" method="post")
+        h4.title.is-4.has-text-centered Sign Up
+
+        .field
+          label.label Full Name
+          .control: input.input(type="text", name="name")
+          //- p.help Help Text
+
+        .field
+          label.label Email
+          .control: input.input(type="email", name="email")
+          //- p.help Help Text
+
+        .field
+          label.label Password
+          .control: input.input(type="password", name="password")
+          //- p.help Help Text
+        
+        br
+
+        .content
+          blockquote By creating an account, you agree to our terms and conditions
+
+        .field
+          .control
+            button.button.is-success.is-fullwidth.is-centered(type="submit") Create an account
+
+        .field.has-text-centered
+          a.button.is-text(href="/login") or, Login

@@ -14,7 +14,7 @@ const Emotions = () => (
 
 const Thoughts = () => (
   <div>
-    <h1 className="has-text-white">Enter thoughts</h1>
+    <h1 className="has-text-white">Enter thought</h1>
     <Link to="/meditate/finish">Finish</Link>
     <Link to="/meditate/emotions">Emotions</Link>
   </div>

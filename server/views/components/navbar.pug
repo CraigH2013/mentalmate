@@ -1,0 +1,35 @@
+nav.navbar
+  .navbar-brand
+    a.navbar-item(href="/profile")
+      img(
+        src="/static/images/logo-long@2x.png"
+        alt="Mental Mate: An easier way to manage stress"
+        height="28"
+      )
+
+    .navbar-burger(data-target="navMenu")
+      span
+      span
+      span
+
+  #navMenu.navbar-menu
+    if user
+      .navbar-end
+        .navbar-item: a.button.is-inverted.is-primary(href="/meditate")
+          span.icon: i.far.fa-hand-peace
+          span Meditate
+        
+        .navbar-item.has-dropdown.is-hoverable
+          a.navbar-link.is-hidden-touch(href="#")
+            figure.image.is-32x32
+              img(
+                src=user.image
+                alt=""
+                style={"max-height": "32px", "border-radius": "3px"}
+              )
+          
+          .navbar-dropdown.is-right
+            p.navbar-item.has-text-weight-semibold= user.name
+            hr.navbar-divider
+            a.navbar-item(href="#") Settings
+            a.navbar-item(href="/logout") Logout

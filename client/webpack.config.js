@@ -2,9 +2,6 @@ const path = require('path');
 
 const config = {
   entry: {
-    login: './src/login/index.jsx',
-    profile: './src/profile/index.jsx',
-    signup: './src/signup/index.jsx',
     meditate: './src/meditate/index.jsx',
   },
   output: {

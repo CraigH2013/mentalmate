@@ -4,5 +4,27 @@ block title
   title Mental Mate - Login
 
 block content
-  #root
-  script(src="/static/js/login-bundle.js")
+  section.section: .container
+    include components/centered-logo.pug
+    .columns.is-centered: .column.is-half.is-narrow: .box
+      form(action="/login" method="post")
+        h4.title.is-4.has-text-centered Login
+
+        .field
+          label.label Email
+          .control: input.input(type="email", name="email")
+          //- p.help Help Text
+
+        .field
+          label.label Password
+          .control: input.input(type="password", name="password")
+          //- p.help Help Text
+        
+        br
+
+        .field
+          .control
+            button.button.is-success.is-fullwidth.is-centered(type="submit") Submit
+
+        .field.has-text-centered
+          a.button.is-text(href="/signup") Create Account
