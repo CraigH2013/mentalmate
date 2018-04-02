@@ -1,0 +1,12 @@
+extends stressors.pug
+
+block stressor-content
+  section.section: .container
+    .box
+      #{user.categories}
+      .select: select(name="category")
+        each category in user.categories
+          option= category
+      input.input(type="text" name="text" placeholder="Title")
+    //- #root
+    //- script(src="/static/js/newstressor-bundle.js")

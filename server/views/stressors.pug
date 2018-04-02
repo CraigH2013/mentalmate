@@ -1,0 +1,32 @@
+extends profile.pug
+
+block profile-content
+  section.hero.is-white: .hero-body.container
+    .level.tab-container
+      .level-item
+        span.icon
+          i.fas.fa-long-arrow-alt-right
+        a.nav-tab.is-red.is-active(href="/profile/stressors") Stressors
+      .level-item
+        a.nav-tab.is-purple(href="/profile/insights") Insights
+      .level-item
+        a.nav-tab.is-blue(href="/profile/activities") Activities
+  
+  block stressor-content
+    section.section: .container
+      .level
+        if stressors.length !== 0
+          .level-left
+            .level-item
+              p test
+        else
+          .level-left
+        .level-right
+          .level-item
+            a.button.is-danger(href="/profile/stressors/new")
+              span.icon.is-small: i.fas.fa-plus
+              span New
+      if stressors.length
+        .content: h1 Stressors
+      else
+        p.has-text-centered No stressors

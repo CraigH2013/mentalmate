@@ -1,0 +1,15 @@
+extends profile.pug
+
+block profile-content
+  .level.tab-container
+    .level-item
+      a.nav-tab.is-red(href="/profile/stressors") Stressors
+    .level-item
+      span.icon
+        i.fas.fa-long-arrow-alt-right
+      a.nav-tab.is-purple.is-active(href="/profile/insights") Insights
+    .level-item
+      a.nav-tab.is-blue(href="/profile/activities") Activities
+
+  .content  
+    h1 Insights

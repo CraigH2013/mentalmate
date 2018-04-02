@@ -2,6 +2,7 @@ const path = require('path');
 
 const config = {
   entry: {
+    newstressor: './src/new-stressor/index.jsx',
     meditate: './src/meditate/index.jsx',
   },
   output: {

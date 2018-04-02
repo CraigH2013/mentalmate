@@ -15,9 +15,9 @@ nav.navbar
   #navMenu.navbar-menu
     if user
       .navbar-end
-        .navbar-item: a.button.is-inverted.is-primary(href="/meditate")
-          span.icon: i.far.fa-hand-peace
-          span Meditate
+        //- .navbar-item: a.button.is-inverted.is-primary(href="/meditate")
+        //-   span.icon: i.far.fa-hand-peace
+        //-   span Meditate
         
         .navbar-item.has-dropdown.is-hoverable
           a.navbar-link.is-hidden-touch(href="#")
@@ -28,7 +28,7 @@ nav.navbar
                 style={"max-height": "32px", "border-radius": "3px"}
               )
           
-          .navbar-dropdown.is-right
+          .navbar-dropdown.is-right.is-boxed.is-dark
             p.navbar-item.has-text-weight-semibold= user.name
             hr.navbar-divider
             a.navbar-item(href="#") Settings

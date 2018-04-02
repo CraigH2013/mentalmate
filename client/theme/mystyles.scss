@@ -1,6 +1,6 @@
 // 1. Import the initial variables
-@import "../node_modules/bulma/sass/utilities/initial-variables";
-@import "../node_modules/bulma/sass/utilities/functions";
+@import '../node_modules/bulma/sass/utilities/initial-variables';
+@import '../node_modules/bulma/sass/utilities/functions';
 
 // 2. Set your own initial variables
 
@@ -18,22 +18,50 @@ body {
   min-height: 100%;
 }
 
+.nav-tab:not(.is-active):not(:hover) {
+  color: #363636 !important;
+}
+
+.nav-tab.is-active {
+  font-weight: 600;
+}
+
+.is-purple {
+  color: $purple !important;
+}
+
+.is-red {
+  color: $red !important;
+}
+
+.is-blue {
+  color: $blue !important;
+}
+
+.tab-container .icon {
+  color: hsl(0, 0%, 29%);
+}
+
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
 // Responsive
 $gap: 42px;
 $tablet: 769px;
 $desktop: 769px + (2 * $gap);
 
 // Font
-$family-sans-serif: "Varela Round", BlinkMacSystemFont, -apple-system,
-  "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-  "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-sans-serif: 'Open Sans', BlinkMacSystemFont, -apple-system, 'Segoe UI',
+  'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+  'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 // $family-monospace: "IBM Plex Mono", monospace;
 
 // 3. Set the derived variables
 
 // Theme
-$primary: $purple;
+$primary: $red;
 
 // Responsive
 $widescreen: $desktop;
@@ -49,7 +77,7 @@ $input-shadow: none;
 // 4. Setup your Custom Colors
 
 // 5. Add new color variables to the color map.
-@import "../node_modules/bulma/sass/utilities/derived-variables";
+@import '../node_modules/bulma/sass/utilities/derived-variables';
 
 // 6. Import the rest of Bulma
-@import "../node_modules/bulma/bulma";
+@import '../node_modules/bulma/bulma';

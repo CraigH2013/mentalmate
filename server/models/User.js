@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
       default: 'shadowNight',
     },
   },
+  categories: {
+    type: [String],
+    default: ['General', 'Work', 'School'],
+  },
 });
 
 const User = mongoose.model('User', userSchema);
