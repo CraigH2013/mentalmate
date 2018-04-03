@@ -9,9 +9,9 @@ const routes = require('./routes');
 // Create Express application.
 const app = express();
 
-const dbUsername = secret ? secret.dbUsername : process.env.DB_USERNAME;
-const dbPassword = secret ? secret.dbPassword : process.env.DB_PASSWORD;
-const dbUrl = secret ? secret.dbUrl : process.env.DB_URL;
+const dbUsername = secret ? secret.db.username : process.env.DB_USERNAME;
+const dbPassword = secret ? secret.db.password : process.env.DB_PASSWORD;
+const dbUrl = secret ? secret.db.url : process.env.DB_URL;
 
 mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
 
