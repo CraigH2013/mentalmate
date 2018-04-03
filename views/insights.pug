@@ -1,15 +1,21 @@
 extends profile.pug
 
 block profile-content
-  .level.tab-container
-    .level-item
-      a.nav-tab.is-red(href="/profile/stressors") Stressors
-    .level-item
-      span.icon
-        i.fas.fa-long-arrow-alt-right
-      a.nav-tab.is-purple.is-active(href="/profile/insights") Insights
-    .level-item
-      a.nav-tab.is-blue(href="/profile/activities") Activities
+  .tabs.is-centered(style={'background-color': 'white'}): ul
+    li: a(href="/profile/stressors") Stressors
+    li.is-active: a(href="/profile/insights") Insights
+    li: a(href="/profile/activities") Activities
 
-  .content  
-    h1 Insights
+  section.section: .container
+    if mainCategory != 'None' || stressorCount != 0 || unlabeledCount != 0
+      h1.title.is-5 Insights
+      hr
+      .content.has-text-centered
+        if mainCategory != 'None'
+          p Your main category of stress is #[code= mainCategory]
+        if stressorCount != 0
+          p You have a total of #[code= stressorCount] stressors currently
+        if unlabledCount !== 0
+          p You have #[code= unlabledCount] stressors without patterns
+    else
+      p No insights yet

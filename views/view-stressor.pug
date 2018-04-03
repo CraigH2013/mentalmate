@@ -2,10 +2,9 @@ extends stressors.pug
 
 block stressor-content
   section.section: .container
-    nav.breadcrumb.has-arrow-separator: ul
-      li: a(href="/profile/stressors") Stressors
-      li.is-active: a(href="#") Detail
-  
+
+    h1.title.is-5 Stressor
+
     form.box(action= `/profile/stressors/${stressor._id}` method="post")
       .field
         label.label Title
@@ -24,6 +23,25 @@ block stressor-content
           option(selected=(stressor.rating == 'Low')) Low
           option(selected=(stressor.rating == 'Medium')) Medium
           option(selected=(stressor.rating == 'High')) High
+
+      .field
+        label.label Thoughts
+        .control: textarea.textarea(name="notes")= stressor.notes
+
+      .field
+        label.label Pattern
+        .select: select(name="pattern")
+          option(selected=(stressor.pattern == 'NONE') value="NONE") None
+          option(selected=(stressor.pattern == 'ALL_OR_NOTHING') value="ALL_OR_NOTHING") All or nothing
+          option(selected=(stressor.pattern == 'NEGATIVE_FOCUS') value="NEGATIVE_FOCUS") Negative focus
+          option(selected=(stressor.pattern == 'THINK_W_FEELINGS') value="THINK_W_FEELINGS") Thinking with feeling
+          option(selected=(stressor.pattern == 'GUILT_BEATING') value="GUILT_BEATING") Guilt beating
+          option(selected=(stressor.pattern == 'LABELING') value="LABELING") Labeling
+          option(selected=(stressor.pattern == 'FORTUNE_TELLING') value="FORTUNE_TELLING") Fortune telling
+          option(selected=(stressor.pattern == 'MIND_READING') value="MIND_READING") Mind reading
+          option(selected=(stressor.pattern == 'BLAME') value="BLAME") Blame
+        a.help(href="http://msaprilshowers.com/mind/9-types-of-automatic-negative-thoughts-by-dr-d-g-amen/") What is this?
       br
       .field.has-text-centered
         button.button.is-success(type="submit") Save
+  

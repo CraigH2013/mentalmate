@@ -8,7 +8,7 @@ const profile = require('./profile');
 const meditate = require('./meditate');
 
 router.get('/', function (req, res) {
-  res.render('home', { user: req.user });
+  res.redirect('/login');
 });
 
 router.use('/signup', signup);

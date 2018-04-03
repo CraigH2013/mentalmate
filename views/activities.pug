@@ -1,15 +1,19 @@
 extends profile.pug
 
 block profile-content
-  .level.tab-container
-    .level-item
-      a.nav-tab.is-red(href="/profile/stressors") Stressors
-    .level-item
-      a.nav-tab.is-purple(href="/profile/insights") Insights
-    .level-item
-      span.icon
-        i.fas.fa-long-arrow-alt-right
-      a.nav-tab.is-blue.is-active(href="/profile/activities") Activities
+  .tabs.is-centered(style={'background-color': 'white'}): ul
+    li: a(href="/profile/stressors") Stressors
+    li: a(href="/profile/insights") Insights
+    li.is-active: a(href="/profile/activities") Activities
 
-  .content  
-    h1 Activities
+  section.section: .container
+    if activities.length === 0
+      p.has-text-centered No activities yet
+    else 
+      h1.title.is-5 Activities
+      hr
+      each activity in activities
+        .box
+          a(href=activity.link)= activity.name
+          br
+          span.tag.is-light= activity.tag

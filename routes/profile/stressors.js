@@ -36,7 +36,9 @@ router.get('/new', function (req, res) {
 
 router.get('/:id', function (req, res, next) {
   const stressorId = req.params.id;
-  Stressor.findOne({ _id: stressorId }).then(function (stressor) {
+  Stressor.findOne({ _id: stressorId }).exec(function (err, stressor) {
+    if (err) throw err;
+
     if (req.user._id.equals(stressor.user)) {
       res.render('view-stressor', { user: req.user, stressor });
     } else {
@@ -46,18 +48,27 @@ router.get('/:id', function (req, res, next) {
 });
 
 router.post('/:id', function (req, res) {
-  const { params: { id }, body: { text, category, rating } } = req;
-
-  Stressor.findById(id, function (err, stressor) {
-    if (err) throw err;
-    stressor.text = text;
-    stressor.category = category;
-    stressor.rating = rating;
-    stressor.save(function (error) {
-      if (error) throw error;
-      res.redirect(`/profile/stressors/${id}`);
+  const {
+    params: { id },
+    body: {
+      text, category, rating, notes, pattern,
+    },
+  } = req;
+  Stressor.findOne({ _id: id })
+    .then(function (stressor) {
+      stressor.text = text;
+      stressor.category = category;
+      stressor.rating = rating;
+      stressor.notes = notes;
+      stressor.pattern = pattern;
+      stressor.save(function (error) {
+        if (error) throw error;
+        res.redirect(`/profile/stressors/${id}`);
+      });
+    })
+    .catch(function (err) {
+      throw err;
     });
-  });
 });
 
 router.post('/', function (req, res) {
