@@ -1,4 +1,3 @@
-const print = require('debug')('app');
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
@@ -65,4 +64,5 @@ app.use(function (err, req, res, next) {
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => print(`Server listening on port ${port}!`));
+/* eslint-disable no-console */
+app.listen(port, () => console.log(`Server listening on port ${port}!`));
