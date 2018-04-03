@@ -51,24 +51,32 @@ router.post('/:id', function (req, res) {
   const {
     params: { id },
     body: {
-      text, category, rating, notes, pattern,
+      text, category, rating, notes, pattern, deleteIt,
     },
   } = req;
-  Stressor.findOne({ _id: id })
-    .then(function (stressor) {
-      stressor.text = text;
-      stressor.category = category;
-      stressor.rating = rating;
-      stressor.notes = notes;
-      stressor.pattern = pattern;
-      stressor.save(function (error) {
-        if (error) throw error;
-        res.redirect(`/profile/stressors/${id}`);
-      });
-    })
-    .catch(function (err) {
-      throw err;
+
+  if (deleteIt) {
+    Stressor.remove({ _id: id }, function (err) {
+      if (err) throw err;
+      res.redirect('/profile/stressors');
     });
+  } else {
+    Stressor.findOne({ _id: id })
+      .then(function (stressor) {
+        stressor.text = text;
+        stressor.category = category;
+        stressor.rating = rating;
+        stressor.notes = notes;
+        stressor.pattern = pattern;
+        stressor.save(function (error) {
+          if (error) throw error;
+          res.redirect(`/profile/stressors/${id}`);
+        });
+      })
+      .catch(function (err) {
+        throw err;
+      });
+  }
 });
 
 router.post('/', function (req, res) {

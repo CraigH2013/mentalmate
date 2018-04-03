@@ -42,6 +42,9 @@ block stressor-content
           option(selected=(stressor.pattern == 'BLAME') value="BLAME") Blame
         a.help(href="http://msaprilshowers.com/mind/9-types-of-automatic-negative-thoughts-by-dr-d-g-amen/") What is this?
       br
-      .field.has-text-centered
-        button.button.is-success(type="submit") Save
-  
+
+      .field.is-grouped
+        .control
+          button.button.is-success(type="submit") Save
+        .control
+          input.button.is-text(type="submit" name="deleteIt" value="Delete")
