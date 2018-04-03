@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
+const secret = !process.env.HEROKU ? require('./secret') : null;
 const passport = require('./passport');
 const api = require('./api');
 const routes = require('./routes');
@@ -8,21 +9,11 @@ const routes = require('./routes');
 // Create Express application.
 const app = express();
 
-// Connect to database
-if (process.env.HEROKU) {
-  // heroku config vars
-  const dbUsername = process.env.DB_USERNAME;
-  const dbPassword = process.env.DB_PASSWORD;
-  const dbUrl = process.env.DB_URL;
-  mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
-} else {
-  // eslint-disable-next-line global-require
-  const secret = require('./secret');
-  const dbUsername = secret.db.username;
-  const dbPassword = secret.db.password;
-  const dbUrl = secret.db.url;
-  mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
-}
+const dbUsername = secret ? secret.dbUsername : process.env.DB_USERNAME;
+const dbPassword = secret ? secret.dbPassword : process.env.DB_PASSWORD;
+const dbUrl = secret ? secret.dbUrl : process.env.DB_URL;
+
+mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
 
 // Set up static files
 app.use('/static', express.static(path.join(__dirname, 'public')));
@@ -37,7 +28,7 @@ app.use(require('morgan')('combined'));
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({
-  secret: secret.session,
+  secret: secret ? secret.session : process.env.SESSION,
   resave: false,
   saveUninitialized: false,
 }));
