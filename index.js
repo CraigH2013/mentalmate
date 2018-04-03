@@ -11,10 +11,19 @@ const routes = require('./routes');
 const app = express();
 
 // Connect to database
-const dbUsername = secret.db.username;
-const dbPassword = secret.db.password;
-const dbUrl = secret.db.url;
-mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
+if (secret) {
+  // local variables
+  const dbUsername = secret.db.username;
+  const dbPassword = secret.db.password;
+  const dbUrl = secret.db.url;
+  mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
+} else {
+  // heroku config vars
+  const dbUsername = process.env.DB_USERNAME;
+  const dbPassword = process.env.DB_PASSWORD;
+  const dbUrl = process.env.DB_URL;
+  mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
+}
 
 // Set up static files
 app.use('/static', express.static(path.join(__dirname, 'public')));
