@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
-const secret = require('./secret');
 const passport = require('./passport');
 const api = require('./api');
 const routes = require('./routes');
@@ -10,17 +9,18 @@ const routes = require('./routes');
 const app = express();
 
 // Connect to database
-if (secret) {
-  // local variables
-  const dbUsername = secret.db.username;
-  const dbPassword = secret.db.password;
-  const dbUrl = secret.db.url;
-  mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
-} else {
+if (process.env.HEROKU) {
   // heroku config vars
   const dbUsername = process.env.DB_USERNAME;
   const dbPassword = process.env.DB_PASSWORD;
   const dbUrl = process.env.DB_URL;
+  mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
+} else {
+  // eslint-disable-next-line global-require
+  const secret = require('./secret');
+  const dbUsername = secret.db.username;
+  const dbPassword = secret.db.password;
+  const dbUrl = secret.db.url;
   mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbUrl}`);
 }
 
