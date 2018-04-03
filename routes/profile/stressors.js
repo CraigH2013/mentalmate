@@ -1,4 +1,5 @@
 const express = require('express');
+const createError = require('http-errors');
 const Stressor = require('../../models/Stressor');
 
 const router = express.Router();
@@ -29,6 +30,36 @@ router.get('/', function (req, res) {
     });
 });
 
+router.get('/new', function (req, res) {
+  res.render('new-stressor', { user: req.user });
+});
+
+router.get('/:id', function (req, res, next) {
+  const stressorId = req.params.id;
+  Stressor.findOne({ _id: stressorId }).then(function (stressor) {
+    if (req.user._id.equals(stressor.user)) {
+      res.render('view-stressor', { user: req.user, stressor });
+    } else {
+      return next(createError(401, 'Invalid user'));
+    }
+  });
+});
+
+router.post('/:id', function (req, res) {
+  const { params: { id }, body: { text, category, rating } } = req;
+
+  Stressor.findById(id, function (err, stressor) {
+    if (err) throw err;
+    stressor.text = text;
+    stressor.category = category;
+    stressor.rating = rating;
+    stressor.save(function (error) {
+      if (error) throw error;
+      res.redirect(`/profile/stressors/${id}`);
+    });
+  });
+});
+
 router.post('/', function (req, res) {
   const { user: { _id }, body: { text, category, rating } } = req;
   Stressor.create({
@@ -43,10 +74,6 @@ router.post('/', function (req, res) {
     .catch(function (err) {
       throw err;
     });
-});
-
-router.get('/new', function (req, res) {
-  res.render('new-stressor', { user: req.user });
 });
 
 module.exports = router;

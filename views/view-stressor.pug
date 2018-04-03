@@ -1,0 +1,29 @@
+extends stressors.pug
+
+block stressor-content
+  section.section: .container
+    nav.breadcrumb.has-arrow-separator: ul
+      li: a(href="/profile/stressors") Stressors
+      li.is-active: a(href="#") Detail
+  
+    form.box(action= `/profile/stressors/${stressor._id}` method="post")
+      .field
+        label.label Title
+          input.input(type="text" name="text" placeholder="Title" required value=`${stressor.text}`)
+      .field
+        label.label Category
+        .select: select(name="category")
+          each category in user.categories
+            if category == stressor.category
+              option(selected)= category
+            else
+              option= category
+      .field
+        label.label Impact
+        .select: select(name="rating")
+          option(selected=(stressor.rating == 'Low')) Low
+          option(selected=(stressor.rating == 'Medium')) Medium
+          option(selected=(stressor.rating == 'High')) High
+      br
+      .field.has-text-centered
+        button.button.is-success(type="submit") Save

@@ -18,34 +18,6 @@ body {
   min-height: 100%;
 }
 
-.nav-tab:not(.is-active):not(:hover) {
-  color: #363636 !important;
-}
-
-.nav-tab.is-active {
-  font-weight: 600;
-}
-
-.is-purple {
-  color: $purple !important;
-}
-
-.is-red {
-  color: $red !important;
-}
-
-.is-blue {
-  color: $blue !important;
-}
-
-.tab-container .icon {
-  color: hsl(0, 0%, 29%);
-}
-
-.input::placeholder {
-  color: rgba(0, 0, 0, 0.4) !important;
-}
-
 // Responsive
 $gap: 42px;
 $tablet: 769px;
