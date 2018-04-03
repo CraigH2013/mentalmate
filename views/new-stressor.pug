@@ -2,11 +2,24 @@ extends stressors.pug
 
 block stressor-content
   section.section: .container
-    .box
-      #{user.categories}
-      .select: select(name="category")
-        each category in user.categories
-          option= category
-      input.input(type="text" name="text" placeholder="Title")
-    //- #root
-    //- script(src="/static/js/newstressor-bundle.js")
+    form.box(action="/profile/stressors" method="post")
+      .field
+        label.label Title
+          input.input(type="text" name="text" placeholder="Title" required)
+        p.help What event or situation are you going through?
+      .field
+        label.label Category
+        .select: select(name="category")
+          each category in user.categories
+            option= category
+        p.help What aspect of life does this fall under?
+      .field
+        label.label Impact
+        .select: select(name="rating")
+          option Low
+          option Medium
+          option High
+        p.help How much is this impacting daily life?
+      br
+      .field.has-text-centered
+        button.button.is-primary(type="submit") Create stressor

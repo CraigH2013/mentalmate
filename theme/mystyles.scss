@@ -68,11 +68,16 @@ $widescreen: $desktop;
 $fullhd: $widescreen;
 
 // Input
-$input-background-color: $white-ter;
-$input-border-color: $white-ter;
-$input-focus-border-color: $white-ter;
-$input-focus-box-shadow-color: rgba($grey-darker, 0.25);
-$input-shadow: none;
+.input.special {
+  background-color: $white-ter;
+  border-color: $white-ter;
+  box-shadow: none;
+}
+
+.input.special:focus {
+  border-color: $white-ter;
+  box-shadow: 1px 1px rgba($grey-darker, 0.25);
+}
 
 // 4. Setup your Custom Colors
 

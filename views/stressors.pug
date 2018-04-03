@@ -15,18 +15,38 @@ block profile-content
   block stressor-content
     section.section: .container
       .level
-        if stressors.length !== 0
-          .level-left
-            .level-item
-              p test
-        else
-          .level-left
+        .level-left
+        //- if count !== 0
+        //-   .level-left
+        //-     .level-item
+        //-       p #[strong= count] #[code #{count > 1 ? 'stressors' : 'stressor'}]
+        //- else
+        //-   .level-left
         .level-right
           .level-item
             a.button.is-danger(href="/profile/stressors/new")
               span.icon.is-small: i.fas.fa-plus
               span New
-      if stressors.length
-        .content: h1 Stressors
+      if count
+        hr
+        each values, category in stressors
+          p.is-uppercase.subtitle.is-7.has-text-weight-bold= category
+          each val in values
+            .card
+              header.card-header
+                p.card-header-title= val.text
+                a.card-header-icon(href=`/profile/stressors/${val.id}`)
+                  span.icon.has-text-black: i.far.fa-edit
+              .card-content: .content
+                if val.attention > 0.66
+                  progress.progress.is-small.is-danger(value=`${val.attention * 100}` max="100")
+                else if val.attention > 0.33
+                  progress.progress.is-small.is-warning(value=`${val.attention * 100}` max="100")
+                else if val.attention > 0
+                  progress.progress.is-small.is-success(value=`${val.attention * 100}` max="100")
+            br 
+
+
+
       else
         p.has-text-centered No stressors

@@ -57,6 +57,10 @@ stressorSchema.virtual('attention').get(function () {
     }
   });
 
+  if (!thoughts.length) {
+    score += 10;
+  }
+
   let multiplier = null;
 
   switch (rating) {
